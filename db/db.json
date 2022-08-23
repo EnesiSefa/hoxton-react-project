@@ -1,0 +1,61 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Enesi",
+      "username": "EnesiDev",
+      "profilePic": "https://upleap.com/blog/wp-content/uploads/2018/10/how-to-create-the-perfect-instagram-profile-picture.jpg",
+      "numberOfPosts": 3,
+      "following": 123,
+      "followers": 321,
+      "bio": "this is my Enestagram page ",
+      "storyHighlights": [
+        {
+          "id": 1,
+          "storyPic": "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
+          "storyTitle": "flower"
+        },
+        {
+          "id": 2,
+          "storyPic": "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
+          "storyTitle": "flower"
+        },
+        {
+          "id": 3,
+          "storyPic": "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
+          "storyTitle": "flower"
+        }
+      ],
+
+      "postsPhotos": [
+        {
+          "id": 1,
+          "postPhoto": "https://thumbs.cityrealty.com/assets/smart/736x/webp/2/22/22ca6350cd0dcc474556e1e06bd8144482a45135/15-central-park-west-01.jpg",
+          "comments": [
+            { "id": 1, "comment": "wow", "likes": 12 },
+            { "id": 2, "comment": "what a view", "likes": 13 }
+          ],
+          "likes": 313
+        },
+        {
+          "id": 2,
+          "postPhoto": "https://theculturetrip.com/wp-content/uploads/2021/03/j7fkyy-e1616521864398.jpg",
+          "comments": [
+            { "id": 1, "comment": "wow" },
+            { "id": 2, "comment": "what a view" }
+          ],
+          "likes": 547
+        },
+        {
+          "id": 3,
+          "postPhoto": "https://www.muchbetteradventures.com/magazine/content/images/2019/07/10083602/iStock-499263804.jpg",
+          "comments": [
+            { "id": 1, "comment": "wow" },
+            { "id": 2, "comment": "what a view" }
+          ],
+          "likes": 347
+        }
+      ]
+    }
+  ]
+}
