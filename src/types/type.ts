@@ -24,5 +24,10 @@ export type Comment = {
   user?: User;
   post?: Post;
 };
+export type Story = {
+  id: number;
+  storyPic: string;
+  storyTitle: string;
+};
 
 export type StoryHighlight = {};

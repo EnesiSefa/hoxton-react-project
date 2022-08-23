@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./ProfilePage.css";
-import { User } from "../types/type";
+import { Story, User } from "../types/type";
 export default function ProfilePage() {
   const [users, setUsers] = useState<User[]>([]);
   useEffect(() => {
@@ -8,6 +8,13 @@ export default function ProfilePage() {
       .then((resp) => resp.json())
       .then((usersFromServer) => setUsers(usersFromServer));
   }, []);
+  const [stories, setStories] = useState<Story[]>([]);
+  useEffect(() => {
+    fetch("http://localhost:4000/stories")
+      .then((resp) => resp.json())
+      .then((storiesFromServer) => setStories(storiesFromServer));
+  }, []);
+
   return (
     <div className="profilepage">
       <main className="main">
@@ -51,18 +58,16 @@ export default function ProfilePage() {
           </div>
 
           <div className="story-highlights">
-            {users.map((user) => (
+            {stories.map((story) => (
               <div className="stories">
-                {user.storyHighlights.map((photo) => (
-                  <>
-                    <img
-                      className="story-pic"
-                      src={photo.storyPic}
-                      alt={photo.storyTitle}
-                    />
-                    <p>{photo.storyTitle}</p>
-                  </>
-                ))}
+                <>
+                  <img
+                    className="story-pic"
+                    src={story.storyPic}
+                    alt={story.storyTitle}
+                  />
+                  <p>{story.storyTitle}</p>
+                </>
               </div>
             ))}
           </div>
