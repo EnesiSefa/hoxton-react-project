@@ -4,8 +4,15 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import ProfilePage from "./pages/ProfilePage";
 import HomePage from "./pages/HomePage";
+import { useEffect, useState } from "react";
+import { User } from "./types/type";
 
 function App() {
+  const [user, setUser] = useState();
+  function signIn(user: User) {
+    localStorage.id = user.id;
+    setUser(user);
+  }
   return (
     <div className="App">
       <Header />

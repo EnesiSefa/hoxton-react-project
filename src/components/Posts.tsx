@@ -1,17 +1,44 @@
 import { useEffect, useState } from "react";
-import { User } from "../types/type";
+import { Post, User } from "../types/type";
 
 export default function Posts() {
   const [users, setUsers] = useState<User[]>([]);
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [userFromComments, setUserfromComments] = useState(null);
   useEffect(() => {
-    fetch("http://localhost:4000/users")
+    fetch("http://localhost:4000/users?_embed=posts&_embed=comments")
       .then((resp) => resp.json())
-      .then((usersFromServer) => setUsers(usersFromServer));
+      .then((usersFromServer) => {
+        setUsers(usersFromServer);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/posts?_expand=user&_embed=comments")
+      .then((resp) => resp.json())
+      .then((postsFromServer) => setPosts(postsFromServer));
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/commets?_expand=user&_expand=post")
+      .then((resp) => resp.json())
+      .then((commentsFromServer) => setComments(commentsFromServer));
+  }, []);
+  function getUserFromCommentId(userId: any) {
+    setUserfromComments(userId);
+    const finalUser = users.find((user) => user.id === userFromComments);
+    return finalUser;
+  }
+
+ 
+  useEffect(() => {
+    fetch("http://localhost:4000/posts");
   }, []);
 
   return (
     <main className="main-posts">
-      {users.map((user) => (
+      {posts.map((post) => (
         <div className="post">
           <header className="post-header">
             <div className="icon-username">
@@ -23,8 +50,8 @@ export default function Posts() {
                 />
               </div>
               <div className="profile-username">
-                <h4>{user.name}</h4>
-                <p>{user.username}</p>
+                <h4>{post.user?.name}</h4>
+                <p>{post.user?.username}</p>
               </div>
             </div>
             <div className="three-dots">
@@ -32,7 +59,7 @@ export default function Posts() {
             </div>
           </header>
           <main className="thumbnail">
-            <img className="in-thumbnail" src="./videos/video-eggs.mp4" />
+            <img className="in-thumbnail" src={post.image} />
           </main>
           <nav className="interaction">
             <div className="like-com-share">
@@ -54,27 +81,35 @@ export default function Posts() {
           </nav>
           <div className="post-info">
             <span className="likes">
-              <h5>101 likes</h5>
+              <h5>{post.likes}</h5>
             </span>
             <div className="profile-username-cap">
-              <h4>landscape</h4>
-              <p className="caption">
-                "delicous omelette" Lorem, ipsum dolor sit amet consectetur
-                adipisicing elit. Quas perferendis fuga voluptate eum obcaecati
-                consequuntur sit alias unde ullam neque.
-              </p>
+              <h4>{post.user?.username}</h4>
+              <p className="caption">{post.description}</p>
             </div>
           </div>
-          <div className="comments">
-            <img src="./images/smiley-face.svg" alt="" />
-            <form action="">
-              <input
-                type="text"
-                className="comment-box"
-                placeholder="Add a comment"
-              />
-            </form>
-          </div>
+          {post.comments?.map((comment) => (
+            <>
+              <div className="comments">
+                <img src="./images/smiley-face.svg" alt="" />
+              </div>
+              <ul>
+                <li>
+                  <img src="" alt="" />
+                  <h4></h4>
+                  <p></p>
+                </li>
+              </ul>
+            </>
+          ))}
+          <form action="">
+            <input
+              type="text"
+              className="comment-box"
+              placeholder="Add a comment"
+              name="comment"
+            />
+          </form>
         </div>
       ))}
     </main>
