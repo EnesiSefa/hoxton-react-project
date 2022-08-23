@@ -9,7 +9,7 @@ export default function ProfilePage() {
       .then((usersFromServer) => setUsers(usersFromServer));
   }, []);
   return (
-    <>
+    <div className="profilepage">
       <main className="main">
         <div className="profile">
           <div className="upper-profile">
@@ -139,6 +139,6 @@ export default function ProfilePage() {
           <li>© 2022 Instagram from Meta</li>
         </ul>
       </footer>
-    </>
+    </div>
   );
 }

@@ -25,31 +25,14 @@ export type User = {
     }
   ];
 
-  postsPhotos: [
+  posts: [
     {
       id: number;
       postPhoto: string;
+      description: string;
       comments: [
         { id: number; comment: string; likes: number },
         { id: number; comment: string; likes: number }
-      ];
-      likes: number;
-    },
-    {
-      id: number;
-      postPhoto: string;
-      comments: [
-        { id: number; comment: string },
-        { id: number; comment: string }
-      ];
-      likes: number;
-    },
-    {
-      id: number;
-      postPhoto: string;
-      comments: [
-        { id: number; comment: string },
-        { id: number; comment: string }
       ];
       likes: number;
     }

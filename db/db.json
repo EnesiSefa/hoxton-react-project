@@ -27,10 +27,11 @@
         }
       ],
 
-      "postsPhotos": [
+      "posts": [
         {
           "id": 1,
-          "postPhoto": "https://thumbs.cityrealty.com/assets/smart/736x/webp/2/22/22ca6350cd0dcc474556e1e06bd8144482a45135/15-central-park-west-01.jpg",
+          "content": "https://thumbs.cityrealty.com/assets/smart/736x/webp/2/22/22ca6350cd0dcc474556e1e06bd8144482a45135/15-central-park-west-01.jpg",
+          "description": "what a nice photo",
           "comments": [
             { "id": 1, "comment": "wow", "likes": 12 },
             { "id": 2, "comment": "what a view", "likes": 13 }
@@ -39,7 +40,8 @@
         },
         {
           "id": 2,
-          "postPhoto": "https://theculturetrip.com/wp-content/uploads/2021/03/j7fkyy-e1616521864398.jpg",
+          "content": "https://theculturetrip.com/wp-content/uploads/2021/03/j7fkyy-e1616521864398.jpg",
+          "description": "what a nice photo",
           "comments": [
             { "id": 1, "comment": "wow" },
             { "id": 2, "comment": "what a view" }
@@ -48,7 +50,8 @@
         },
         {
           "id": 3,
-          "postPhoto": "https://www.muchbetteradventures.com/magazine/content/images/2019/07/10083602/iStock-499263804.jpg",
+          "content": "https://www.muchbetteradventures.com/magazine/content/images/2019/07/10083602/iStock-499263804.jpg",
+          "description": "what a nice photo",
           "comments": [
             { "id": 1, "comment": "wow" },
             { "id": 2, "comment": "what a view" }
