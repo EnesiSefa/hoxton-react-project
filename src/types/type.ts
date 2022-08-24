@@ -7,7 +7,7 @@ export type User = {
   email: string;
 };
 export type Post = {
-  id: number;
+  id?: number;
   image: string;
   description: string;
   likes: number;
@@ -16,7 +16,7 @@ export type Post = {
   comments?: Comment[];
 };
 export type Comment = {
-  id: number;
+  id?: number;
   content: string;
   likes: number;
   userId: number;
@@ -29,5 +29,9 @@ export type Story = {
   storyPic: string;
   storyTitle: string;
 };
+
+export type Id = {
+  id: number
+}
 
 export type StoryHighlight = {};

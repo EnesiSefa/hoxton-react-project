@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Post, User } from "../types/type";
+import { Comment } from "../types/type";
 
 export default function Posts() {
   const [users, setUsers] = useState<User[]>([]);
@@ -22,7 +23,7 @@ export default function Posts() {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:4000/commets?_expand=user&_expand=post")
+    fetch("http://localhost:4000/comments?_expand=user&_expand=post")
       .then((resp) => resp.json())
       .then((commentsFromServer) => setComments(commentsFromServer));
   }, []);
@@ -31,7 +32,34 @@ export default function Posts() {
     const finalUser = users.find((user) => user.id === userFromComments);
     return finalUser;
   }
-  function postComments(e, post) {
+  // function addPost(e:any){
+  //   fetch("http://localhost:4000/posts", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //         image: e.target.content.value,
+  //         description: e.target.description.value,
+  //       likes: 0,
+  //       userId: users.id,
+
+  //     }),
+  //   })
+  //     .then((resp) => resp.json())
+  //     .then((data) => setComments(data));
+
+  //   let newPosts: Post[] = structuredClone(posts);
+  //  newPosts.push({
+  //   image: e.target.content.value,
+  //   description: e.target.description.value,
+  //  likes: 0,
+  //    userId: users.id,})
+
+  //   setPosts(newPosts);
+  // }
+
+  function postComments(e: any, post: Post) {
     fetch("http://localhost:4000/comments", {
       method: "POST",
       headers: {
@@ -46,20 +74,63 @@ export default function Posts() {
     })
       .then((resp) => resp.json())
       .then((data) => setComments(data));
+
+    let newPosts: Post[] = structuredClone(posts);
+    //newPosts.push(post)
+    //setPosts(newPosts)
+    for (const element of newPosts) {
+      if (element.id === post.id) {
+        element.comments?.push({
+          content: e.target.content.value,
+          likes: post.likes,
+          userId: post.userId,
+          postId: post?.id!,
+        });
+      }
+    }
+    setPosts(newPosts);
   }
-  function deletingComments(comment: Comment) {
+
+  function deletingPosts(post: Post) {
+    fetch(`http://localhost:4000/Posts/${post.id}`, {
+      method: "DELETE",
+    }).then((resp) => {
+      resp.json();
+    });
+
+    let newPosts: Post[] = structuredClone(posts);
+
+    for (let i = 0; i < newPosts.length; i++) {
+      if (newPosts[i].id === post.id) {
+        newPosts.splice(i, 1);
+      }
+    }
+
+    setPosts(newPosts);
+  }
+
+  function deletingComments(comment: Comment, post: Post) {
     console.log(comment);
+
     fetch(`http://localhost:4000/comments/${comment.id}`, {
       method: "DELETE",
     }).then((resp) => {
       resp.json();
     });
 
-    let newComments: Comment[] = structuredClone(comment);
+    let newPosts: Post[] = structuredClone(posts);
 
-    const finalComments = newComments.filter(item=> item.id)
-
-    setComments(finalComments);
+    for (let i = 0; i < newPosts.length; i++) {
+      if (newPosts[i].id === post.id) {
+        for (let j = 0; j < newPosts[i].comments?.length!; j++) {
+          // @ts-ignore
+          if (newPosts[i]?.comments[j]?.id! === comment.id) {
+            newPosts[i].comments?.splice(j, 1);
+          }
+        }
+      }
+    }
+    setPosts(newPosts);
   }
   return (
     <main className="main-posts">
@@ -123,7 +194,13 @@ export default function Posts() {
                   <img src="" alt="" />
                   <h4>{comment.user?.name}</h4>
                   <p>{comment.content}</p>
-                  <button>delete comment</button>
+                  <button
+                    onClick={() => {
+                      deletingComments(comment, post);
+                    }}
+                  >
+                    delete comment
+                  </button>
                 </li>
               </ul>
             </>

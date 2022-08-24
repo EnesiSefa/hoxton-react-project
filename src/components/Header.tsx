@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Header() {
+export default function Header(logout, user) {
   return (
     <header className="header">
       <div className="instagram-logo">
@@ -42,6 +42,9 @@ export default function Header() {
           <Link to={"/ProfilePage"}>
             <img className="panel-icon" src="/images/profile-pic.webp" alt="" />
           </Link>
+          <div>
+            {user === null ? <button onClick={logout}>log out</button> : null}
+          </div>
         </div>
       </div>
     </header>
