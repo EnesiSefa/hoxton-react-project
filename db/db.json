@@ -17,7 +17,6 @@
       "likes": 10,
       "userId": 1
     },
-
     {
       "id": 2,
       "image": "https://theculturetrip.com/wp-content/uploads/2021/03/j7fkyy-e1616521864398.jpg",
@@ -33,14 +32,300 @@
       "likes": 10,
       "userId": 1,
       "postId": 1
+    },
+    {
+      "id": 2,
+      "content": "another comment",
+      "likes": 20,
+      "userId": 1,
+      "postId": 2
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 3
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 4
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 5
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 6
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 7
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 8
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 9
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 10
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 11
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 12
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 13
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 14
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 15
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 16
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 17
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 18
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 19
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 20
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 21
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 22
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 23
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 24
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 25
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 26
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 27
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 28
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 29
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 30
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 31
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 32
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 33
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 34
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 35
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 36
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 37
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 38
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 39
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 40
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 41
+    },
+    {
+      "content": "testing ",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 42
     }
   ],
-  "stories":[
+  "stories": [
     {
       "id": 1,
       "storyPic": "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
       "storyTitle": "flower"
     }
-    
   ]
 }

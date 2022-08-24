@@ -9,10 +9,7 @@ import { User } from "./types/type";
 
 function App() {
   const [user, setUser] = useState();
-  function signIn(user: User) {
-    localStorage.id = user.id;
-    setUser(user);
-  }
+ 
   return (
     <div className="App">
       <Header />

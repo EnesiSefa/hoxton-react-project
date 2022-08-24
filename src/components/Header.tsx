@@ -4,11 +4,13 @@ export default function Header() {
   return (
     <header className="header">
       <div className="instagram-logo">
-        <img
-          className="instagram-logo-pic"
-          src="/images/Instagram_logo.svg.png"
-          alt=""
-        />
+        <Link to={"HomePage"}>
+          <img
+            className="instagram-logo-pic"
+            src="/images/Instagram_logo.svg.png"
+            alt=""
+          />
+        </Link>
       </div>
       <div className="searchbar">
         <span className="material-symbols-outlined"> search </span>

@@ -6,6 +6,7 @@ export default function Posts() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [comments, setComments] = useState<Comment[]>([]);
   const [userFromComments, setUserfromComments] = useState(null);
+  const [postingComments, setPostingComments] = useState("");
   useEffect(() => {
     fetch("http://localhost:4000/users?_embed=posts&_embed=comments")
       .then((resp) => resp.json())
@@ -30,12 +31,36 @@ export default function Posts() {
     const finalUser = users.find((user) => user.id === userFromComments);
     return finalUser;
   }
+  function postComments(e, post) {
+    fetch("http://localhost:4000/comments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        content: e.target.content.value,
+        likes: post.likes,
+        userId: post.userId,
+        postId: post.id,
+      }),
+    })
+      .then((resp) => resp.json())
+      .then((data) => setComments(data));
+  }
+  function deletingComments(comment: Comment) {
+    console.log(comment);
+    fetch(`http://localhost:4000/comments/${comment.id}`, {
+      method: "DELETE",
+    }).then((resp) => {
+      resp.json();
+    });
 
- 
-  useEffect(() => {
-    fetch("http://localhost:4000/posts");
-  }, []);
+    let newComments: Comment[] = structuredClone(comment);
 
+    const finalComments = newComments.filter(item=> item.id)
+
+    setComments(finalComments);
+  }
   return (
     <main className="main-posts">
       {posts.map((post) => (
@@ -93,21 +118,28 @@ export default function Posts() {
               <div className="comments">
                 <img src="./images/smiley-face.svg" alt="" />
               </div>
-              <ul>
+              <ul className="comments">
                 <li>
                   <img src="" alt="" />
-                  <h4></h4>
-                  <p></p>
+                  <h4>{comment.user?.name}</h4>
+                  <p>{comment.content}</p>
+                  <button>delete comment</button>
                 </li>
               </ul>
             </>
           ))}
-          <form action="">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              postComments(e, post);
+            }}
+            action=""
+          >
             <input
               type="text"
               className="comment-box"
               placeholder="Add a comment"
-              name="comment"
+              name="content"
             />
           </form>
         </div>
