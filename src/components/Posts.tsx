@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { Post, User } from "../types/type";
 import { Comment } from "../types/type";
 
-export default function Posts() {
+export default function Posts({ posts, setPosts }: any) {
   const [users, setUsers] = useState<User[]>([]);
-  const [posts, setPosts] = useState<Post[]>([]);
+
   const [comments, setComments] = useState<Comment[]>([]);
   const [userFromComments, setUserfromComments] = useState(null);
   const [postingComments, setPostingComments] = useState("");
@@ -32,7 +32,7 @@ export default function Posts() {
     const finalUser = users.find((user) => user.id === userFromComments);
     return finalUser;
   }
-  
+
   function postComments(e: any, post: Post) {
     fetch("http://localhost:4000/comments", {
       method: "POST",
@@ -64,7 +64,6 @@ export default function Posts() {
     }
     setPosts(newPosts);
   }
-
 
   function deletingComments(comment: Comment, post: Post) {
     console.log(comment);
@@ -151,8 +150,8 @@ export default function Posts() {
                     <img src="" alt="" />
                     <h4>{comment.user?.name}</h4>
                     <p>{comment.content}</p>
-                    
-                    <button >♡</button>
+
+                    <button>♡</button>
                     <span>{comment.likes}</span>
                     <button
                       className="delete-button"

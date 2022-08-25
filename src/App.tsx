@@ -5,17 +5,18 @@ import Header from "./components/Header";
 import ProfilePage from "./pages/ProfilePage";
 import HomePage from "./pages/HomePage";
 import { useEffect, useState } from "react";
-import { User } from "./types/type";
+import { Post, User } from "./types/type";
 import LoginPage from "./pages/LoginPage";
 import { useNavigate } from "react-router-dom";
 import SignUpPage from "./pages/SignUpPage";
 import InboxPage from "./pages/InboxPage";
+import Posts from "./components/Posts";
 
 function App() {
   const [user, setUser] = useState(null);
   const [users, setUsers] = useState([]);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [posts, setPosts] = useState<Post[]>([]);
+
   const navigate = useNavigate();
   function login(credentials: any) {
     fetch(`http://localhost:4000/users?_embed=posts`)
@@ -62,11 +63,26 @@ function App() {
           <>
             <Route
               path="/HomePage"
-              element={<HomePage user={user} logout={logout} />}
+              element={
+                <HomePage
+                  user={user}
+                  logout={logout}
+                  posts={posts}
+                  setPosts={setPosts}
+                />
+              }
             />
             <Route
               path="/ProfilePage"
-              element={<ProfilePage user={user} logout={logout} setUser={setUser} />}
+              element={
+                <ProfilePage
+                  user={user}
+                  logout={logout}
+                  setUser={setUser}
+                  setPosts={setPosts}
+                  posts={posts}
+                />
+              }
             />
           </>
         )}

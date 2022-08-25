@@ -3,9 +3,7 @@ import "./ProfilePage.css";
 import { Post, Story, User } from "../types/type";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
-export default function ProfilePage({ user, logout, setUser }: any) {
-  const [posts, setPosts] = useState<Post[]>([]);
-
+export default function ProfilePage({ user, logout, setUser ,posts,setPosts}: any) {
   const [stories, setStories] = useState<Story[]>([]);
   const [comments, setComments] = useState<Story[]>([]);
   useEffect(() => {
@@ -62,14 +60,14 @@ export default function ProfilePage({ user, logout, setUser }: any) {
         newPosts.splice(i, 1);
       }
     }
+    setPosts(newPosts);
     let newUser = structuredClone(user);
     for (let i = 0; i < newUser.posts.length; i++) {
       if (newUser.posts[i].id === post.id) {
-        newUser.posts[i].splice(i, 1);
+        newUser.posts.splice(i, 1);
       }
     }
 
-    setPosts(newPosts);
     setUser(newUser);
   }
 
@@ -165,19 +163,42 @@ export default function ProfilePage({ user, logout, setUser }: any) {
           <div className="feed-post">
             <div className="feed-content">
               {user?.posts?.map((post: any) => (
-                <img className="feed-post-pic" src={post?.image} alt="" />
+                <>
+                  <img className="feed-post-pic" src={post?.image} alt="" />
+                  <button
+                    onClick={() => {
+                      deletingPost(post);
+                    }}
+                  >
+                    X
+                  </button>
+                </>
               ))}
             </div>
           </div>
         </div>
       </main>
       <footer className="footer">
-        <form action="">
+        <form
+          action=""
+          onSubmit={(e) => {
+            e.preventDefault();
+            const post = {
+              link: e.target.link.value,
+              description: e.target.description.value,
+            };
+            addPost(post);
+          }}
+        >
           <label htmlFor="">
-            <input type="text" placeholder="paste the link " />
+            <input type="text" placeholder="paste the link " name="link" />
           </label>
           <label htmlFor="">
-            <input type="text" placeholder="write a description" />
+            <input
+              type="text"
+              placeholder="write a description"
+              name="description"
+            />
           </label>
         </form>
         <ul className="nav-list">
