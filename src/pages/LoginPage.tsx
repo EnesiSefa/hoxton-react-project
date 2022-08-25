@@ -40,6 +40,7 @@ export default function LoginPage({ login }: any) {
             action="/HomePage"
             className="log-in-form"
             onSubmit={(e) => {
+              e.preventDefault()
               login({
                 email: e.target.email.value,
                 password: e.target.password.value,
@@ -69,11 +70,11 @@ export default function LoginPage({ login }: any) {
               />
             </label>
             <label className="button">
-              <a className="button-link" href="/index.html">
+              {/* <a className="button-link" > */}
                 <button className="log-in-button">
                   <p>Log in</p>
                 </button>
-              </a>
+              {/* </a> */}
             </label>
             <h4 className="or">or</h4>
             <h4>

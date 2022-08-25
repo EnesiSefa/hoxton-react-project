@@ -13,44 +13,64 @@ import InboxPage from "./pages/InboxPage";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [users, setUsers] = useState([]);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
   function login(credentials: any) {
-    fetch(
-      `http://localhost:4000/users?email=${credentials.email}&?password=${credentials.password}`
-    )
+    fetch(`http://localhost:4000/users?_embed=posts`)
       .then((resp) => resp.json())
-      .then((userFromServer) => {
-        setUser(userFromServer);
-        localStorage.setItem(user, userFromServer);
+      .then((usersFromServer) => {
+        setUsers(usersFromServer);
+        const newUsers = structuredClone(users);
+        const filteredUser = newUsers.find(
+          (item: User) =>
+            item?.email! === credentials.email &&
+            item?.password! === credentials.password
+        ); //@ts-ignore
+        setUser(filteredUser);
+        if (user !== null && user !== undefined) {
+          localStorage.id = user.id;
+          navigate(`/HomePage`);
+        }
       });
   }
   function logout() {
+    localStorage.removeItem("id");
     setUser(null);
-    localStorage.removeItem(user);
-  }
-  function validateUser() {
-    if (user !== null) {
-      navigate(`/HomePage`);
-    }
+    navigate(`/loginPage`);
   }
   useEffect(() => {
-    validateUser();
-  }, []);
+    const userId = localStorage.id;
+    if (userId) {
+      fetch(`http://localhost:4000/users/${userId}?_embed=posts`)
+        .then((resp) => resp.json())
+        .then((userFromServer) => {
+          setUser(userFromServer);
+          // navigate("/HomePage");
+        });
+    } else {
+      navigate("/LoginPage");
+    }
+  }, [localStorage.id]);
 
   return (
     <div className="App">
       <Routes>
         <Route index element={<Navigate replace to="/LoginPage" />} />
+        {user && (
+          <>
+            <Route
+              path="/HomePage"
+              element={<HomePage user={user} logout={logout} />}
+            />
+            <Route
+              path="/ProfilePage"
+              element={<ProfilePage user={user} logout={logout} setUser={setUser} />}
+            />
+          </>
+        )}
 
-        <Route
-          path="/HomePage"
-          element={<HomePage user={user} logout={logout} />}
-        />
-
-        <Route
-          path="/ProfilePage"
-          element={<ProfilePage user={user} logout={logout} />}
-        />
         <Route path="/LoginPage" element={<LoginPage login={login} />} />
       </Routes>
     </div>

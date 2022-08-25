@@ -43,7 +43,9 @@ export default function Header({ logout, user }: any) {
             <img className="panel-icon" src="/images/profile-pic.webp" alt="" />
           </Link>
           <div>
-            {user !== null ? <button onClick={logout}>log out</button> : null}
+            {user !== null && user !== undefined ? (
+              <button onClick={logout}>log out</button>
+            ) : null}
           </div>
         </div>
       </div>
