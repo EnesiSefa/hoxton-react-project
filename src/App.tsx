@@ -15,7 +15,9 @@ function App() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
   function login(credentials: any) {
-    fetch(`http://localhost:4000/users?_email=${credentials.email}`)
+    fetch(
+      `http://localhost:4000/users?email=${credentials.email}&?password=${credentials.password}`
+    )
       .then((resp) => resp.json())
       .then((userFromServer) => {
         setUser(userFromServer);
@@ -45,7 +47,10 @@ function App() {
           element={<HomePage user={user} logout={logout} />}
         />
 
-        <Route path="/ProfilePage" element={<ProfilePage user={user} />} />
+        <Route
+          path="/ProfilePage"
+          element={<ProfilePage user={user} logout={logout} />}
+        />
         <Route path="/LoginPage" element={<LoginPage login={login} />} />
       </Routes>
     </div>

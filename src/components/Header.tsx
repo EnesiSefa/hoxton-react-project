@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
-export default function Header(logout, user) {
+export default function Header({ logout, user }: any) {
   return (
     <header className="header">
       <div className="instagram-logo">
-        <Link to={"HomePage"}>
+        <Link to={"/HomePage"}>
           <img
             className="instagram-logo-pic"
             src="/images/Instagram_logo.svg.png"

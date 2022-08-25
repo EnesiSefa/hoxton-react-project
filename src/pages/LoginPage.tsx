@@ -1,5 +1,5 @@
 import "./loginPage.css";
-export default function LoginPage({ login }) {
+export default function LoginPage({ login }: any) {
   return (
     <section className="login-page">
       <main className="main">
@@ -39,8 +39,11 @@ export default function LoginPage({ login }) {
           <form
             action="/HomePage"
             className="log-in-form"
-            onSubmit={() => {
-              login;
+            onSubmit={(e) => {
+              login({
+                email: e.target.email.value,
+                password: e.target.password.value,
+              });
             }}
           >
             <label>
@@ -51,6 +54,7 @@ export default function LoginPage({ login }) {
                 maxLength={20}
                 required
                 placeholder="Phone number,username or email"
+                name="email"
               />
             </label>
             <label>
@@ -61,6 +65,7 @@ export default function LoginPage({ login }) {
                 maxLength={20}
                 required
                 placeholder="Password"
+                name="password"
               />
             </label>
             <label className="button">
