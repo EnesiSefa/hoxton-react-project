@@ -25,7 +25,7 @@ function App() {
     localStorage.removeItem(`user`);
   }
   function validateUser() {
-    if (user) {
+    if (user !== null) {
       navigate(`/HomePage`);
     }
   }
@@ -37,7 +37,7 @@ function App() {
     <div className="App">
       {/* <Header logout={logout} user={user} /> */}
       {/* <LoginPage login={login} /> */}
-      {user ? <LoginPage login={login} /> : <HomePage user={user}  />}
+      {user ?  <LoginPage login={login}  /> : <HomePage user={user}/> }
 
       <Routes>
         {/* <Route path="/HomePage" element={<HomePage user={user} />} /> */}

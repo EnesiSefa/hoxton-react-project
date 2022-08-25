@@ -1,5 +1,5 @@
 import "./loginPage.css";
-export default function LoginPage({ login }) {
+export default function LoginPage({ login, }) {
   return (
     <section className="login-page">
       <main className="main">
@@ -36,7 +36,14 @@ export default function LoginPage({ login }) {
             src="/images/Instagram_logo.svg.png"
             alt=""
           />
-          <form action="/HomePage" className="log-in-form" onSubmit={()=>{login}}>
+          <form
+            action="/HomePage"
+            className="log-in-form"
+            onSubmit={() => {
+              login;
+              validateUser;
+            }}
+          >
             <label>
               <input
                 className="username"

@@ -7,6 +7,14 @@
       "profilePic": "https://upleap.com/blog/wp-content/uploads/2018/10/how-to-create-the-perfect-instagram-profile-picture.jpg",
       "password": "1234",
       "email": "enesi@mail.com"
+    },
+    {
+      "id": 2,
+      "name": "jack",
+      "username": "jackSparrow",
+      "profilePic": "https://i.ytimg.com/vi/maYoO6zgm44/maxresdefault.jpg",
+      "password": "1234",
+      "email": "John@mail.com"
     }
   ],
   "posts": [
@@ -19,10 +27,24 @@
     },
     {
       "id": 2,
-      "image": "https://theculturetrip.com/wp-content/uploads/2021/03/j7fkyy-e1616521864398.jpg",
+      "image": "https://media.cntraveler.com/photos/60596b398f4452dac88c59f8/master/w_4000,h_2667,c_limit/MtFuji-GettyImages-959111140.jpg",
       "description": "what a nice photo",
       "likes": 10,
       "userId": 1
+    },
+    {
+      "id": 1,
+      "image": "https://i.dailymail.co.uk/1s/2022/06/03/20/58654925-10882931-image-m-30_1654285755579.jpg",
+      "description": "The Pirate, The Musketeer and The Ugly",
+      "likes": 10,
+      "userId": 2
+    },
+    {
+      "id": 2,
+      "image": "https://i.pinimg.com/originals/f4/e9/47/f4e947ba0661d16753f1e939e3a3768a.jpg",
+      "description": "drinking rum with lovely Miss Swann",
+      "likes": 10,
+      "userId": 2
     }
   ],
   "comments": [],

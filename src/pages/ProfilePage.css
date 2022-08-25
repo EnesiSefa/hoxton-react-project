@@ -18,6 +18,40 @@
     100px 1fr 100px;
   grid-gap: 20px;
 }
+.header {
+  grid-area: header;
+  display: grid;
+  grid-auto-flow: column;
+  /* background-color: rgba(0, 255, 255, 0.733); */
+  place-items: center;
+  border-bottom: 1px solid rgb(180, 180, 180);
+}
+.instagram-logo-pic {
+  height: 40px;
+}
+
+.searchbar {
+  display: grid;
+  grid-auto-flow: column;
+  border-radius: 5px;
+  background-color: #efefef;
+  /* place-content: center; */
+}
+.searchbar-inside {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #efefef;
+}
+
+.navigation-panel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 20px;
+}
+.nav-profile-pic {
+  height: 30px;
+}
 
 .main {
   grid-area: main;

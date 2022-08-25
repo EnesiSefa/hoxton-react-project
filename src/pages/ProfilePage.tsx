@@ -64,6 +64,45 @@ export default function ProfilePage() {
 
   return (
     <div className="profilepage">
+      <header className="header">
+        <div className="instagram-logo">
+          <a href="/index.html"
+            ><img
+              className="instagram-logo-pic"
+              src="/images/Instagram_logo.svg.png"
+              alt=""
+          /></a>
+        </div>
+        <div className="searchbar">
+          <span className="material-symbols-outlined"> search </span>
+          <input className="searchbar-inside" type="search" placeholder="Search" />
+        </div>
+        <div className="navigation-panel">
+          <div className="home">
+            <img className="panel-icon" src="/images/home.svg" alt="" />
+          </div>
+          <div className="inbox">
+            <img className="panel-icon" src="/images/inbox.svg" alt="" />
+          </div>
+          <div className="new-post">
+            <img className="panel-icon" src="/images/new post.svg" alt="" />
+          </div>
+          <div className="explore">
+            <img className="panel-icon" src="/images/explore.svg" alt="" />
+          </div>
+          <div className="activity">
+            <img className="panel-icon" src="/images/big like.svg" alt="" />
+          </div>
+          <div className="nav-profile-icon">
+            <a href="/sign-up-page/sign-up.html"
+              ><img
+                className="nav-profile-pic"
+                src="/images/profile-pic.webp"
+                alt=""
+            /></a>
+          </div>
+        </div>
+      </header>
       <main className="main">
         <div className="profile">
           <div className="upper-profile">

@@ -134,7 +134,7 @@ export default function Posts() {
           </nav>
           <div className="post-info">
             <span className="likes">
-              <h5>{post.likes}</h5>
+              <h5>{post.likes} likes</h5>
             </span>
             <div className="profile-username-cap">
               <h4>{post.user?.username}</h4>

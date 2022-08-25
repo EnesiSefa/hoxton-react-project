@@ -251,6 +251,7 @@
 }
 
 .profile-username-cap {
+  gap: 8px;
   display: flex;
 }
 
