@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import "./ProfilePage.css";
-import { Story, User } from "../types/type";
+import { Post, Story, User } from "../types/type";
 export default function ProfilePage() {
   const [users, setUsers] = useState<User[]>([]);
+  const [posts,setPosts]= useState<Post[]>([])
   useEffect(() => {
     fetch("http://localhost:4000/users")
       .then((resp) => resp.json())
@@ -14,6 +15,52 @@ export default function ProfilePage() {
       .then((resp) => resp.json())
       .then((storiesFromServer) => setStories(storiesFromServer));
   }, []);
+
+
+  function addPost(e:any){
+    fetch("http://localhost:4000/posts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+          image: e.target.content.value,
+          description: e.target.description.value,
+        likes: 0,
+        userId: users.id,
+
+      }),
+    })
+      .then((resp) => resp.json())
+      .then((data) => setComments(data));
+
+    let newPosts: Post[] = structuredClone(posts);
+   newPosts.push({
+    image: e.target.content.value,
+    description: e.target.description.value,
+   likes: 0,
+     userId: users.id,})
+
+    setPosts(newPosts);
+  }
+
+  function deletingPosts(post: Post) {
+    fetch(`http://localhost:4000/Posts/${post.id}`, {
+      method: "DELETE",
+    }).then((resp) => {
+      resp.json();
+    });
+
+    let newPosts: Post[] = structuredClone(posts);
+
+    for (let i = 0; i < newPosts.length; i++) {
+      if (newPosts[i].id === post.id) {
+        newPosts.splice(i, 1);
+      }
+    }
+
+    setPosts(newPosts);
+  }
 
   return (
     <div className="profilepage">
@@ -129,7 +176,15 @@ export default function ProfilePage() {
         </div>
       </main>
       <footer className="footer">
-        <ul className="nav-list">
+        <form action="">
+          <label htmlFor="">
+            <input type="text" placeholder="paste the link "/>
+          </label>
+          <label htmlFor="">
+            <input type="text" placeholder="write a description"/>
+          </label>
+        </form>
+        {/* <ul className="nav-list">
           <label htmlFor="">
             English
             <select name="" id="">
@@ -142,7 +197,7 @@ export default function ProfilePage() {
           </label>
 
           <li>© 2022 Instagram from Meta</li>
-        </ul>
+        </ul> */}
       </footer>
     </div>
   );

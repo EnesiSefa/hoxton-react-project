@@ -25,22 +25,7 @@
       "userId": 1
     }
   ],
-  "comments": [
-    {
-      "content": "what a view",
-      "likes": 10,
-      "userId": 1,
-      "postId": 1,
-      "id": 2
-    },
-    {
-      "content": "what a view",
-      "likes": 10,
-      "userId": 1,
-      "postId": 1,
-      "id": 3
-    }
-  ],
+  "comments": [],
   "stories": [
     {
       "id": 1,

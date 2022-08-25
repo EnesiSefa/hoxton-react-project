@@ -32,33 +32,7 @@ export default function Posts() {
     const finalUser = users.find((user) => user.id === userFromComments);
     return finalUser;
   }
-  // function addPost(e:any){
-  //   fetch("http://localhost:4000/posts", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //         image: e.target.content.value,
-  //         description: e.target.description.value,
-  //       likes: 0,
-  //       userId: users.id,
-
-  //     }),
-  //   })
-  //     .then((resp) => resp.json())
-  //     .then((data) => setComments(data));
-
-  //   let newPosts: Post[] = structuredClone(posts);
-  //  newPosts.push({
-  //   image: e.target.content.value,
-  //   description: e.target.description.value,
-  //  likes: 0,
-  //    userId: users.id,})
-
-  //   setPosts(newPosts);
-  // }
-
+  
   function postComments(e: any, post: Post) {
     fetch("http://localhost:4000/comments", {
       method: "POST",
@@ -91,23 +65,6 @@ export default function Posts() {
     setPosts(newPosts);
   }
 
-  function deletingPosts(post: Post) {
-    fetch(`http://localhost:4000/Posts/${post.id}`, {
-      method: "DELETE",
-    }).then((resp) => {
-      resp.json();
-    });
-
-    let newPosts: Post[] = structuredClone(posts);
-
-    for (let i = 0; i < newPosts.length; i++) {
-      if (newPosts[i].id === post.id) {
-        newPosts.splice(i, 1);
-      }
-    }
-
-    setPosts(newPosts);
-  }
 
   function deletingComments(comment: Comment, post: Post) {
     console.log(comment);
