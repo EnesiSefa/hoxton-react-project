@@ -98,7 +98,7 @@ export default function Posts() {
               <div className="post-icon">
                 <img
                   className="post-icon-pic"
-                  src="/images/story2.jpg"
+                  src={post.user?.profilePic}
                   alt=""
                 />
               </div>
@@ -147,7 +147,7 @@ export default function Posts() {
                 {/* <img src="./images/smiley-face.svg" alt="" /> */}
 
                 <ul>
-                  <li>
+                  <li className="comment-item">
                     <img src="" alt="" />
                     <h4>{comment.user?.name}</h4>
                     <p>{comment.content}</p>

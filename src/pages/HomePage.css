@@ -266,10 +266,14 @@
   outline: 1px solid rgb(202, 199, 199);
   padding: 10px;
 }
+.comment-item{
+  list-style: none;
+}
 .comment-box {
   border: none;
   outline: none;
 }
+
 .delete-button{
  background-color: rgba(255, 0, 0, 0.726);
  color: white;
