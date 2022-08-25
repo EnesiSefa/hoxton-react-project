@@ -5,7 +5,7 @@
       "name": "Enesi",
       "username": "EnesiDev",
       "profilePic": "https://upleap.com/blog/wp-content/uploads/2018/10/how-to-create-the-perfect-instagram-profile-picture.jpg",
-      "password": 1234,
+      "password": "1234",
       "email": "enesi@mail.com"
     }
   ],
@@ -25,7 +25,22 @@
       "userId": 1
     }
   ],
-  "comments": [],
+  "comments": [
+    {
+      "content": "what a view",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 2
+    },
+    {
+      "content": "what a view",
+      "likes": 10,
+      "userId": 1,
+      "postId": 1,
+      "id": 3
+    }
+  ],
   "stories": [
     {
       "id": 1,

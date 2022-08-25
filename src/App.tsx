@@ -35,11 +35,14 @@ function App() {
 
   return (
     <div className="App">
-      <Header logout={logout} user={user} />
+      {/* <Header logout={logout} user={user} /> */}
+      {/* <LoginPage login={login} /> */}
+      {user ? <LoginPage login={login} /> : <HomePage user={user}  />}
+
       <Routes>
-        <Route path="/HomePage" element={<HomePage user={user} />} />
+        {/* <Route path="/HomePage" element={<HomePage user={user} />} /> */}
         <Route path="ProfilePage" element={<ProfilePage user={user} />} />
-        <Route path="LoginPage" element={<LoginPage login={login} />} />
+        {/* <Route path="LoginPage" element={<LoginPage login={login} />} /> */}
       </Routes>
     </div>
   );

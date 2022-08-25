@@ -187,22 +187,27 @@ export default function Posts() {
           {post.comments?.map((comment) => (
             <>
               <div className="comments">
-                <img src="./images/smiley-face.svg" alt="" />
+                {/* <img src="./images/smiley-face.svg" alt="" /> */}
+
+                <ul>
+                  <li>
+                    <img src="" alt="" />
+                    <h4>{comment.user?.name}</h4>
+                    <p>{comment.content}</p>
+                    
+                    <button >♡</button>
+                    <span>{comment.likes}</span>
+                    <button
+                      className="delete-button"
+                      onClick={() => {
+                        deletingComments(comment, post);
+                      }}
+                    >
+                      X
+                    </button>
+                  </li>
+                </ul>
               </div>
-              <ul className="comments">
-                <li>
-                  <img src="" alt="" />
-                  <h4>{comment.user?.name}</h4>
-                  <p>{comment.content}</p>
-                  <button
-                    onClick={() => {
-                      deletingComments(comment, post);
-                    }}
-                  >
-                    delete comment
-                  </button>
-                </li>
-              </ul>
             </>
           ))}
           <form
