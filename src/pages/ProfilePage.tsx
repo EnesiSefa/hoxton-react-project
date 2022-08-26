@@ -25,7 +25,7 @@ export default function ProfilePage({
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        link: e.target.link.value,
+        image: e.target.link.value,
         description: e.target.description.value,
         likes: 0,
         userId: user.id,
