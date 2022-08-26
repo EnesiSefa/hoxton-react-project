@@ -5,11 +5,8 @@ export default function Header({ logout, user }: any) {
     <header className="header">
       <div className="instagram-logo">
         <Link to={"/HomePage"}>
-          <img
-            className="instagram-logo-pic"
-            src="/images/Instagram_logo.svg.png"
-            alt=""
-          />
+          <h1>Enestagram</h1>
+          
         </Link>
       </div>
       <div className="searchbar">

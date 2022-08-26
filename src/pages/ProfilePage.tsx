@@ -3,7 +3,13 @@ import "./ProfilePage.css";
 import { Post, Story, User } from "../types/type";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
-export default function ProfilePage({ user, logout, setUser ,posts,setPosts}: any) {
+export default function ProfilePage({
+  user,
+  logout,
+  setUser,
+  posts,
+  setPosts,
+}: any) {
   const [stories, setStories] = useState<Story[]>([]);
   const [comments, setComments] = useState<Story[]>([]);
   useEffect(() => {
@@ -19,7 +25,7 @@ export default function ProfilePage({ user, logout, setUser ,posts,setPosts}: an
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        image: e.target.content.value,
+        link: e.target.link.value,
         description: e.target.description.value,
         likes: 0,
         userId: user.id,
@@ -83,7 +89,7 @@ export default function ProfilePage({ user, logout, setUser ,posts,setPosts}: an
             <div className="profile-info">
               <div className="profile-username-settings">
                 <div className="username">
-                  <h3>Landscape</h3>
+                  <h3>{user?.username}</h3>
                 </div>
                 <div className="edit">
                   <button className="edit-button">Edit profile</button>
@@ -104,26 +110,29 @@ export default function ProfilePage({ user, logout, setUser ,posts,setPosts}: an
                 </div>
               </div>
               <div className="profile-name-bio">
-                <b>nature</b>
-                <p>beautiful</p>
+                <p>this is my page</p>
               </div>
             </div>
           </div>
 
-          <div className="story-highlights">
-            {stories.map((story) => (
-              <div className="stories">
-                <>
-                  <img
-                    className="story-pic"
-                    src={story.storyPic}
-                    alt={story.storyTitle}
-                  />
-                  <p>{story.storyTitle}</p>
-                </>
-              </div>
-            ))}
-          </div>
+          <form
+            className="form"
+            action=""
+            onSubmit={(e) => {
+              e.preventDefault();
+
+              addPost(e);
+            }}
+          >
+            <input type="text" placeholder="paste the link " name="link" />
+
+            <input
+              type="text"
+              placeholder="write a description"
+              name="description"
+            />
+            <button>Add Post</button>
+          </form>
 
           <div className="feed-navigation">
             <a className="feed-links" href="#">
@@ -163,59 +172,23 @@ export default function ProfilePage({ user, logout, setUser ,posts,setPosts}: an
           <div className="feed-post">
             <div className="feed-content">
               {user?.posts?.map((post: any) => (
-                <>
+                <div className="feed-image-button">
                   <img className="feed-post-pic" src={post?.image} alt="" />
                   <button
+                    className="remove-post"
                     onClick={() => {
                       deletingPost(post);
                     }}
                   >
                     X
                   </button>
-                </>
+                </div>
               ))}
             </div>
           </div>
         </div>
       </main>
-      <footer className="footer">
-        <form
-          action=""
-          onSubmit={(e) => {
-            e.preventDefault();
-            const post = {
-              link: e.target.link.value,
-              description: e.target.description.value,
-            };
-            addPost(post);
-          }}
-        >
-          <label htmlFor="">
-            <input type="text" placeholder="paste the link " name="link" />
-          </label>
-          <label htmlFor="">
-            <input
-              type="text"
-              placeholder="write a description"
-              name="description"
-            />
-          </label>
-        </form>
-        <ul className="nav-list">
-          <label htmlFor="">
-            English
-            <select name="" id="">
-              <option value="">English</option>
-              <option value="">German</option>
-              <option value="">Italian</option>
-              <option value="">Polish</option>
-              <option value="">French</option>
-            </select>
-          </label>
-
-          <li>© 2022 Instagram from Meta</li>
-        </ul>
-      </footer>
+      <footer className="footer"></footer>
     </div>
   );
 }
