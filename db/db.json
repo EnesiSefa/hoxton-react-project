@@ -52,6 +52,13 @@
       "likes": 0,
       "userId": 2,
       "id": 6
+    },
+    {
+      "image": "https://static.wikia.nocookie.net/pirates/images/a/a7/JackxTeague.jpg/revision/latest/scale-to-width-down/300?cb=20101223035016",
+      "description": "with Barbosa",
+      "likes": 0,
+      "userId": 2,
+      "id": 7
     }
   ],
   "comments": [],
